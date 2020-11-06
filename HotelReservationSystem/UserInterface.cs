@@ -10,13 +10,31 @@ namespace HotelReservationSystem
         {
             try
             {
+                Console.WriteLine("...................................");
                 Console.WriteLine("Enter dates in dd-mm--yyyy format");
                 string[] dates = Console.ReadLine().Split(",");
 
-                Hotel[] cheapestHotels = hotelSystem.GetCheapestHotel(dates).ToArray();
-                Console.WriteLine("Cheapest Hotel :");
+                Console.WriteLine("...................................");
+                Console.WriteLine("1.Get Cheapest Hotel\n2.Get Cheapest Best Rated Hotel");
 
-                hotelSystem.DisplayHotels(cheapestHotels);
+                Console.WriteLine("...................................");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("...................................");
+
+                switch (choice)
+                {
+                    case 1:
+                        Hotel[] cheapestHotels = hotelSystem.GetCheapestHotel(dates).ToArray();
+                        hotelSystem.DisplayHotels(cheapestHotels);
+                        break;
+                    case 2:
+                        Hotel[] cheapestBestRatedHotels = hotelSystem.GetCheapestBestRatedHotel(dates).ToArray();
+                        hotelSystem.DisplayHotels(cheapestBestRatedHotels);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Operation");
+                        break;
+                }
             }
             catch (HotelReservationException e)
             {

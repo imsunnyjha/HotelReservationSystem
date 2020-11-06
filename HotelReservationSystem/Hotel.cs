@@ -3,7 +3,8 @@
     public class Hotel
     {
         public string name;
-        public int ratesForRegularCustomer;
+        public int weekdayRatesForRegularCustomer;
+        public int weekendRatesForRegularCustomer;
 
         /// <summary>
         /// Default Constructor
@@ -11,18 +12,20 @@
         public Hotel()
         {
             name = "";
-            ratesForRegularCustomer = 0;
+            weekdayRatesForRegularCustomer = 0;
+            weekendRatesForRegularCustomer = 0;
         }
 
         /// <summary>
         /// Parameterised Constructor
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="ratesForRegularCustomer"></param>
-        public Hotel(string name, int ratesForRegularCustomer)
+        /// <param name="weekdayRatesForRegularCustomer"></param>
+        /// <param name="weekendRatesForRegularCustomer"></param>
+        public Hotel(string name, int weekdayRatesForRegularCustomer, int weekendRatesForRegularCustomer)
         {
             this.name = name;
-            this.ratesForRegularCustomer = ratesForRegularCustomer;
+            this.weekdayRatesForRegularCustomer = weekdayRatesForRegularCustomer;
+            this.weekendRatesForRegularCustomer = weekendRatesForRegularCustomer;
         }
     }
 }

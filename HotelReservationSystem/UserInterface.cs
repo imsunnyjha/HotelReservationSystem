@@ -15,7 +15,7 @@ namespace HotelReservationSystem
                 string[] dates = Console.ReadLine().Split(",");
 
                 Console.WriteLine("...................................");
-                Console.WriteLine("1.Get Cheapest Hotel\n2.Get Cheapest Best Rated Hotel");
+                Console.WriteLine("1.Get Cheapest Hotel\n2.Get Cheapest Best Rated Hotel\n3.Get Best Rated Hotel");
 
                 Console.WriteLine("...................................");
                 int choice = Convert.ToInt32(Console.ReadLine());
@@ -24,12 +24,16 @@ namespace HotelReservationSystem
                 switch (choice)
                 {
                     case 1:
-                        Hotel[] cheapestHotels = hotelSystem.GetCheapestHotel(dates).ToArray();
+                        List<Hotel> cheapestHotels = hotelSystem.GetCheapestHotel(dates);
                         hotelSystem.DisplayHotels(cheapestHotels);
                         break;
                     case 2:
-                        Hotel[] cheapestBestRatedHotels = hotelSystem.GetCheapestBestRatedHotel(dates).ToArray();
+                        List<Hotel> cheapestBestRatedHotels = hotelSystem.GetCheapestBestRatedHotel(dates);
                         hotelSystem.DisplayHotels(cheapestBestRatedHotels);
+                        break;
+                    case 3:
+                        List<Hotel> bestRatedHotels = hotelSystem.GetBestRatedHotel(dates);
+                        hotelSystem.DisplayHotels(bestRatedHotels);
                         break;
                     default:
                         Console.WriteLine("Invalid Operation");

@@ -2,11 +2,17 @@
 
 namespace HotelReservationSystem
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Welcome to hotel reservation system!");
+            HotelSystem hotelSystem = new HotelSystem();
+            hotelSystem.AddHotel(new Hotel("Lakewood", 110));
+            hotelSystem.AddHotel(new Hotel("Bridgewood", 160));
+            hotelSystem.AddHotel(new Hotel("Ridgewood", 220));
+
+            Console.WriteLine("Loading Hotels.........");
         }
     }
 }
